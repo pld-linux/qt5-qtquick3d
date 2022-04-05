@@ -73,6 +73,7 @@ Biblioteki Qt5 Quick3D.
 Summary:	Qt5 Quick3D - development files
 Summary(pl.UTF-8):	Biblioteka Qt5 Quick3D - pliki programistyczne
 Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5Core-devel >= %{qtbase_ver}
 Requires:	Qt5Gui-devel >= %{qtbase_ver}
 Requires:	Qt5Quick3D = %{version}-%{release}
