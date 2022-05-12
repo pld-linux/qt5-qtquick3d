@@ -129,7 +129,7 @@ Przykłady do bibliotek Qt5 Quick3D.
 
 %build
 %{qmake_qt5} -- \
-	%{?with_system_assimp:-system-quick3d-assimp}
+	-%{?with_system_assimp:system}%{!?with_system_assimp:qt}-quick3d-assimp
 
 %{__make}
 
