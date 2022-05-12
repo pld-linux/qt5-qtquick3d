@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_without	doc	# Documentation
+%bcond_without	doc		# Documentation
+%bcond_with	system_assimp	# build with system assimp
 
 %define		orgname		qtquick3d
 %define		qtbase_ver		%{version}
@@ -10,7 +11,7 @@ Summary:	The Qt5 Quick3D libraries
 Summary(pl.UTF-8):	Biblioteki Qt5 Quick3D
 Name:		qt5-%{orgname}
 Version:	5.15.4
-Release:	1
+Release:	2
 License:	GPL v3+ or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-opensource-src-%{version}.tar.xz
@@ -21,7 +22,7 @@ BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Gui-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Qml-devel >= %{qtdeclarative_ver}
 BuildRequires:	Qt5Quick-devel >= %{qtdeclarative_ver}
-BuildRequires:	assimp-devel >= 5.0.0
+%{?with_system_assimp:BuildRequires:	assimp-devel >= 5.0.0}
 BuildRequires:	pkgconfig
 %if %{with doc}
 BuildRequires:	qt5-assistant >= %{qttools_ver}
@@ -61,7 +62,7 @@ Requires:	Qt5Core >= %{qtbase_ver}
 Requires:	Qt5Gui >= %{qtbase_ver}
 Requires:	Qt5Qml >= %{qtdeclarative_ver}
 Requires:	Qt5Quick >= %{qtdeclarative_ver}
-Requires:	assimp >= 5.0.0
+%{?with_system_assimp:Requires:	assimp >= 5.0.0}
 
 %description -n Qt5Quick3D
 Qt5 Quick3D libraries.
@@ -128,7 +129,7 @@ Przykłady do bibliotek Qt5 Quick3D.
 
 %build
 %{qmake_qt5} -- \
-	-system-quick3d-assimp
+	%{?with_system_assimp:-system-quick3d-assimp}
 
 %{__make}
 
