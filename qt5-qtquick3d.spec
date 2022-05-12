@@ -9,12 +9,12 @@
 Summary:	The Qt5 Quick3D libraries
 Summary(pl.UTF-8):	Biblioteki Qt5 Quick3D
 Name:		qt5-%{orgname}
-Version:	5.15.2
-Release:	2
+Version:	5.15.4
+Release:	1
 License:	GPL v3+ or commercial
 Group:		X11/Libraries
-Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
-# Source0-md5:	d4379fd99acb1d4cc960c52ca646013a
+Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-opensource-src-%{version}.tar.xz
+# Source0-md5:	50ad28c93ff63928a6527f01b511220e
 Patch0:		%{name}-system-assimp.patch
 URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
@@ -149,11 +149,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libQt5*.so.5.??
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libQt5*.la
-
-# remove compiled examples (package only sources)
-for d in $RPM_BUILD_ROOT%{_examplesdir}/qt5/quick3d/* ; do
-	[ -d "$d" ] && %{__rm} "$d/$(basename $d)"
-done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
