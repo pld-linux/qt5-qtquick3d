@@ -20,6 +20,7 @@ Patch0:		%{name}-system-assimp.patch
 URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Gui-devel >= %{qtbase_ver}
+BuildRequires:	Qt5OpenGLExtensions-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Qml-devel >= %{qtdeclarative_ver}
 BuildRequires:	Qt5Quick-devel >= %{qtdeclarative_ver}
 %{?with_system_assimp:BuildRequires:	assimp-devel >= 5.0.0}
