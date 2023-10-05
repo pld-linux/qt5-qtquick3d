@@ -10,12 +10,12 @@
 Summary:	The Qt5 Quick3D libraries
 Summary(pl.UTF-8):	Biblioteki Qt5 Quick3D
 Name:		qt5-%{orgname}
-Version:	5.15.10
+Version:	5.15.11
 Release:	1
 License:	GPL v3+ or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-opensource-src-%{version}.tar.xz
-# Source0-md5:	4fee5576384e91d9c0ada47d07b13d37
+# Source0-md5:	6057dd6d41e5c3ed09681103cc67078e
 Patch0:		%{name}-system-assimp.patch
 URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
