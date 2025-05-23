@@ -125,7 +125,7 @@ Przykłady do bibliotek Qt5 Quick3D.
 
 %prep
 %setup -q -n %{orgname}-everywhere-src-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{qmake_qt5} -- \
